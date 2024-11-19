@@ -1,0 +1,28 @@
+<%= layout("/layouts/boilerplate")%>
+
+<body>
+   <% if(result.length && result){%>
+    <div class="mt-2">
+        <h1><%= result[0].category%></h1>
+    </div>
+    <div class="row row-cols-lg-4 mt-3 row-cols-md-2  row-cols-sm-1 row-cols-xsm-1">
+        <% for(r of result){ %>
+        <div class="card col" style="width: 26rem;">
+        <a  href="/listings/<%= r._id%>"><img src="<%= r.image.url%>" class="card-img-top" style="height: 20rem;" alt="listing_img"></a> 
+        
+        <div class="card-body">
+           <p class="card-text"><b><%= r.title%></b><br>
+             &#8377; <%= r.price.toLocaleString("en-IN")%> /night 
+           </p>
+          
+           <p class="card-text"><%= r.location%></p>
+         </div>
+       </div>
+       <% } %>
+     </div
+    <%} else{%>
+          <div class="alert alert-warning alert-dismissible fade show mt-5" role="alert">
+            <strong>No Listings Yet.</strong>
+          </div>
+        <%} %>
+</body>

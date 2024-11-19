@@ -1,0 +1,62 @@
+<% layout("/layouts/boilerplate")%>
+<body>
+<div class="row">
+   <div class="col-8 offset-2">
+   <h3> Create a new Listing : </h3>
+   <br><br>
+   <form method="POST" class="needs-validation" enctype="multipart/form-data" action="/listings/new" novalidate>
+      <div class="mb-3">
+         <label class="form-label">Title: </label>
+        <input type="text" class="form-control" placeholder="Enter title" name="title" required>
+        <div class="valid-feedback">
+         Looks good!
+       </div>
+      </div>
+      <div class="mb-3">
+         <label class="form-label">Description: </label>
+        <textarea placeholder="Enetr Description" class="form-control" name="description" required></textarea>
+        <div class="invalid-feedback">A short description is required!</div>
+      </div>
+      <div class="mb-3">
+         <label class="form-label">Upload Image: </label>
+         <input type="file" class="form-control"  name="image" required>
+      </div>
+      <div class="mb-3">
+         <label class="form-label">Category: </label>
+         <select class="form-select form-select-md mb-3" name="category">
+            <option selected>Select category of your home</option>
+            <option value="Trending">Trending</option>
+            <option value="Rooms">Rooms</option>
+            <option value="Iconic Cities">Iconic Cities</option>
+            <option value="Mountains">Mountains</option>
+            <option value="Castles">Castles</option>
+            <option value="Amazing Pools">Amazing Pools</option>
+            <option value="Camping">Camping</option>
+            <option value="Farms">Farms</option>
+            <option value="Arctic">Arctic</option>
+          </select>
+      </div>
+      <div class="row ">
+         <div class=" col-md-4">
+            <label class="form-label">Price: </label>
+           <input type="text" class="form-control" placeholder="Enter price" name="price" required>
+           <div class="invalid-feedback">Enter valid Price</div>
+         </div>
+         <div class="mb-3 col-md-7">
+            <label class="form-label">Country: </label>
+           <input type="text" class="form-control" placeholder="Enter Country" name="country" required>
+           <div class="invalid-feedback">Enter valid Country</div>
+         </div>
+      </div>
+      
+      <div class="mb-3">
+         <label class="form-label">Location: </label>
+        <input type="text" class="form-control" placeholder="Enter location" name="location" required>
+        <div class="invalid-feedback">Enter valid Location</div>
+      </div><br><br>
+      
+        <button class="btn btn-dark" >Add</button>
+   </form>
+</div>
+</div>
+</body> 

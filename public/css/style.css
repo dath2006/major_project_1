@@ -1,0 +1,109 @@
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.navbar{
+    height: 90px;
+    background-color: white;
+}
+
+.navbar-nav{
+    margin-left: 50px;
+    border: 2px solid black;
+    border-radius: 50px;
+}
+
+.container{
+   
+    flex:1;
+}
+
+.fa-compass{
+    font-size: 45px;
+}
+
+.fa-compass:hover{
+   color: #FF385C;
+}
+
+.nav-link{
+    color: black !important;
+}
+
+.f-link{
+    color: black;
+    text-decoration: none;
+}
+
+.fa-brands:hover{
+    color: #FF385C;
+}
+
+.f-link:hover{
+    text-decoration: underline;
+}
+
+.f-info{
+    padding-top: 10px;
+    background-color:lightgray;
+}
+
+.f-info-socials{
+   padding: 10px;
+   cursor: default;
+}
+
+.f-info-company{
+    padding-bottom: 13px;
+}
+
+.fa-brands{
+    padding-right: 10px;
+    font-size: 20px;
+}
+
+.row{
+   
+    row-gap: 3rem;
+    column-gap: 12px; 
+}
+
+.card{
+    border: 0px !important;
+    
+}
+
+.card-img-top{
+    border-radius: 30px !important;
+    width: 100% !important;
+    object-fit: cover !important;
+   
+ 
+} 
+
+.card-img-top:hover{
+    background-color: white;
+     opacity: 0.8;
+}
+
+
+
+.card-text{
+font-weight: 400 !important;
+}
+
+.card-img-overlay{
+    opacity: 0;
+    
+}
+
+.card-img-overlay:hover {
+    opacity: 1;
+    
+}
+
+#map { 
+    height: 400px; width: 116vh;
+ }
+

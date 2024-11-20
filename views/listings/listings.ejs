@@ -2,7 +2,7 @@
 <style>
   .filters{
     display: flex;
-    flex-wrap: wrap;
+    
     align-content: center;
     overflow: hidden;
   }
@@ -38,11 +38,34 @@
   }
   .toggle:hover{
     border: 1px solid black;
-    border-radius: 0.8rem;
+    text-align: start;
+  }
+  @media (max-width:767px) {
+    .toggle{
+      display: flex;
+      justify-self: center;
+      align-items: center;
+      padding: 0 2rem;
+      margin: 0;
+      margin-top: 1rem;
+      font-size: large;
+    }
+    .cards{
+      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  @media (min-width:767px)and(max-width:1399px){
+    .cards{
+      background-color: aqua;
+      
+    }
+    
   }
 </style>
 <body>
-    <div class="filters">
+    <div class="filters overflow-x-scroll">
     <a class="category" href="/listings/category/Trending">
       <div class="filter">
           <div><i class="fa-solid fa-fire"></i></div>
@@ -97,15 +120,15 @@
           <p>Arctic</p>
       </div>
     </a>
+    </div>
     <div class="toggle">
       <div class="form-check-reverse form-switch">
         <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
         <label class="form-check-label" for="flexSwitchCheckDefault">Display Total after Taxes</label>
       </div>
     </div>
-    </div>
   <% if(result.length && result){%>
-    <div class="row row-cols-lg-4 mt-3 row-cols-md-2  row-cols-sm-1 row-cols-xsm-1">
+    <div class="row cards row-cols-lg-4 mt-3 ">
        <% for(r of result){ %>
        <div class="card col" style="width: 26rem;">
        <a  href="/listings/<%= r._id%>"><img src="<%= r.image.url%>" class="card-img-top" style="height: 20rem;" alt="listing_img"></a> 

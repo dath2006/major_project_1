@@ -1,8 +1,27 @@
 <% layout("/layouts/boilerplate")%>
-
+<style>
+   @media (max-width:767px) {
+       .row{
+        justify-content: center;
+       } 
+       .inp input,.inp{
+        font-size: larger;
+        width: 14rem;
+       }
+       
+    }
+    @media (min-width:992px){
+        .row{
+            justify-content: center;
+       } 
+        .main{
+            margin-left: 4rem;
+        }
+    }
+</style>
 <div class="row">
-    <h1 class="col-6 offset-3">SignUp on Wanderlust</h1>
-    <div class="col-6 offset-3">
+    <h1 class="col-6 ">SignUp on Wanderlust</h1>
+    <div class="col-6 main">
         <form action="/signup" method="post" class="needs-validation" novalidate>
             <div class="mb-3">
                 <label class="form-label" for="username">Username: </label>
@@ -12,12 +31,12 @@
                </div>
             </div>
 
-            <div class="mb-3">
+            <div class="mb-3 inp ">
                 <label class="form-label" for="email">Email: </label>
                <input type="email" class="form-control" id="email" name="email" required>
             </div>
 
-            <div class="mb-3">
+            <div class="mb-3 inp">
                 <label class="form-label" for="password">Password: </label>
                <input type="password" class="form-control" id="password" name="password" required>
             </div>

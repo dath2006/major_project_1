@@ -10,7 +10,7 @@ This project is like clone to Airbnb. (Beginnner Level).
 I have also made it responsive so feel free to open in any devices.
 As this is not the final version since it could have some styling issue or some bugs and i will definetly fix these in upcomming commits.
 
-Hosted Link - [Click ME](https://major-project-1-6qm4.onrender.com/listings)
+Hosted Link - [Click ME](https://major-project-1-6qm4.onrender.com/listings) - Please have patience since it is free hosting
 
 I have used MVC for arranging codes and all.
 

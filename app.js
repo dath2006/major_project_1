@@ -33,6 +33,7 @@ async function main(){
 const listingRouter=require("./routes/listing.js")
 const reviewRouter=require("./routes/review.js")
 const userRouter = require("./routes/user.js");
+const detailsRouter = require("./routes/details.js");
 
 app.use(methodOverride('_method'));
 app.set("view engine","ejs");
@@ -91,6 +92,7 @@ app.use((req,res,next)=>{
 app.use("/listings",listingRouter);
 app.use("/listings/:id/reviews",reviewRouter);
 app.use("/",userRouter);
+app.use("/",detailsRouter);
 
 app.use("*",(req,res,next)=>{
     next(new ExpressError(404,"Page Not Found!"));

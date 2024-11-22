@@ -1,4 +1,29 @@
 <% layout("layouts/boilerplate.ejs") %>
+<style>
+    form{
+      font-size:1.8rem;
+   }
+   
+   @media (max-width:767px) {
+      .form-control,.form-select{
+      font-size: x-large;
+   }
+   .btn-dark{
+      font-size: xx-large;
+   }
+   .row{
+      width: 110%;
+   }
+   }
+   @media (min-width:768px) and (max-width:991px){
+      .form-control,.form-select{
+      font-size: xx-large;
+   }
+   .btn-dark{
+      font-size: xx-large;
+   }
+   }
+</style>
 <div class="row">
     <div class="col-8 offset-2">
 <body>

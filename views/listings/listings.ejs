@@ -40,7 +40,8 @@
     border: 1px solid black;
     text-align: start;
   }
-  @media (max-width:767px) {
+   @media (max-width:767px) {
+    
     .toggle{
       display: flex;
       justify-self: center;
@@ -55,16 +56,40 @@
       flex-direction: column;
       align-items: center;
     }
-  }
-  @media (min-width:767px)and(max-width:1399px){
-    .cards{
-      background-color: aqua;
-      
-    }
     
+  }
+  @media (min-width:768px) and (max-width:991px){
+   
+    .toggle{
+      display: flex;
+      justify-self: center;
+      align-items: center;
+      padding: 0 2rem;
+      margin: 0;
+      margin-top: 1rem;
+      font-size: large;
+    }
+    .cards{
+      flex-direction: column;
+    }
+  }
+  @media (min-width:992px) {
+    .cards{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .main{
+      display: flex;
+    }
+    .toggle{
+      width: 20rem;
+    }
+   
   }
 </style>
 <body>
+  <div class="main">
     <div class="filters overflow-x-scroll">
     <a class="category" href="/listings/category/Trending">
       <div class="filter">
@@ -120,17 +145,20 @@
           <p>Arctic</p>
       </div>
     </a>
+ 
     </div>
-    <div class="toggle">
+    <div class="toggle toggle-inside">
       <div class="form-check-reverse form-switch">
         <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
         <label class="form-check-label" for="flexSwitchCheckDefault">Display Total after Taxes</label>
       </div>
     </div>
+  </div>
+
   <% if(result.length && result){%>
     <div class="row cards row-cols-lg-4 mt-3 ">
        <% for(r of result){ %>
-       <div class="card col" style="width: 26rem;">
+       <div class="card col" >
        <a  href="/listings/<%= r._id%>"><img src="<%= r.image.url%>" class="card-img-top" style="height: 20rem;" alt="listing_img"></a> 
        
        <div class="card-body">
@@ -150,7 +178,10 @@
     </div>
     <% }%>
   <script>
-    let taxSwitch = document.getElementById("flexSwitchCheckDefault");
+    
+        let taxSwitch = document.getElementById("flexSwitchCheckDefault");
+      
+
     taxSwitch.addEventListener("click",()=> {
       let taxInfo = document.getElementsByClassName("taxInfo")
       for(info of taxInfo){ 

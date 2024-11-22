@@ -1,4 +1,96 @@
 <% layout("/layouts/boilerplate")%>
+<style>
+  
+  @media (max-width:767px) {
+    .card-body{
+      font-size: x-large;
+    }
+    .card-body h5{
+      font-size: larger;
+    }
+    .card-body-sec2 h6{
+      font-size: x-large;
+    }
+    #map{
+      width:100%;
+    }
+   .btn{
+      font-size: 1.5rem;
+    }
+    .show-buttons div{
+      margin-right: 3rem;
+    }
+    .review-main{
+     justify-content: space-between;
+      
+    }
+    .review-main .card-header{
+      font-size:xx-large ;
+      
+    }
+    .review-box{
+      width: 100%;
+    }
+    .review-main .card-body .card-subtitle{
+      font-size: x-large;
+    }
+  }
+
+  @media (min-width:768px) and (max-width:991px){
+    #map{
+      width: 100%;
+    }
+    .main-content{
+     width:fit-content;
+    }
+    .card-body{
+      font-size: xx-large;
+    }
+    .card-body h5{
+      font-size: larger;
+    }
+    .card-body-sec2 h6{
+      font-size: xx-large;
+    }
+    .btn{
+      font-size: 1.4rem;
+    }
+    .show-buttons div form button,.show-buttons div a{
+      font-size: xx-large;
+    }
+    .show-buttons div{
+      margin-right: 3rem;
+    }
+    .review-box,.review-box h4{
+      font-size: larger
+    }
+    .text-area{
+      font-size: x-large;
+    }
+    .review-main{
+     justify-content: space-between;
+      
+    }
+    .review-main .card-header{
+      font-size:xx-large ;
+      
+    }
+    .review-box{
+      width: fit-content;
+    }
+    .review-main .card-body .card-subtitle{
+      font-size: x-large;
+    }
+  }
+  @media (min-width:992px) {
+    .card{
+      margin-left: 13rem;
+    }
+    .review-box{
+      width: fit-content;
+    }
+  }
+</style>
 <script>
     const mapToken = "<%=process.env.MAP_KEY %>"
     const coordinates = "<%= result.geometry.coordinates%>"
@@ -7,9 +99,9 @@
 <body>
     <h3>Listing Details : </h3>
 <br><br>
-    <div class="card mb-3 offset-3" style="max-width: 100%">
+    <div class="card mb-3 " style="max-width: 100%">
         <div class="row g-0">
-          <div class="col-md-5">
+          <div class="col-md-5 main-content">
             <img src="<%= result.image.url%>" class="img-fluid rounded-start" alt="listing_img">
           </div>
           <div class="col-md-5">
@@ -23,13 +115,13 @@
         </div>
       </div>
 
-      <div class="card offset-2" style="width: 80%;">
-        <div class="card-body">
+      <div class="card" >
+        <div class="card-body card-body-sec2">
           <h6 class="card-title"><%= result.description%></h6>
           <h6 class="card-title"><%= result.location%></h6>
           <h6 class="card-title"><%= result.country%></h6><br>
       <% if(currUser && result.owner._id.equals(currUser._id)){%>
-        <div class="row">
+        <div class="row show-buttons">
             <div class="col-1">
                 <a href="/listings/<%= result.id%>/edit" class="btn btn-primary">Edit</a>
             </div>
@@ -42,7 +134,7 @@
       <% }%>
         <br><hr><br>
         <% if(currUser){%>
-          <div class="mb-3">
+          <div class="mb-3 review-box">
             <h4>Leave a Review</h4>
             <form method="post" class="needs-validation" action="/listings/<%= result.id%>/reviews" novalidate>
               <div>
@@ -63,7 +155,7 @@
               </div>
               <div>
                 <label class="form-label" for="comment" ><b>Comments :</b></label>
-                <textarea class="form-control" name="review[comment]" id="comment" rows="4" cols="19" required></textarea>
+                <textarea class="form-control text-area" name="review[comment]" id="comment" rows="4" cols="19" required></textarea>
                 <div class="invalid-feedback">Leave a comment</div>
               </div><br>
               <button class="btn btn-outline-dark">Submit</button>
@@ -76,9 +168,9 @@
             
             <% if(result.reviews.length){%>
              
-              <div class="row row-cols-lg-2 row-cols-sm-4">
+              <div class="row review-main row-cols-lg-2 row-cols-sm-4">
                 <% for(r of result.reviews){%>
-                <div class="col" style="width: 30rem;">
+                <div class="col review-box" >
                  <div class="card ms-5">
                 <div class="card-header">
                   @<%= r.author.username%> 
